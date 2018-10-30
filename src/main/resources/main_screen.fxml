@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+
+<VBox styleClass="container" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="de.atennert.fregefx.HelloController">
+  <stylesheets>
+    <String fx:value="hello.css"/>
+  </stylesheets>
+
+  <Label fx:id="label1" text="Hello" />
+  <HBox styleClass="container">
+    <Button fx:id="button1" text="Do IO" onAction="#doIO"/>
+    <Button fx:id="button2" text="Do UI" onAction="#doUI"/>
+  </HBox>
+</VBox>

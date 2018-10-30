@@ -1,0 +1,53 @@
+module de.atennert.fregefx.Hello where
+
+import fregefx.JavaFxType
+import fregefx.JavaFxAll
+import fregefx.JavaFxUtils
+import frege.control.monad.State
+
+
+{-- Main function - starting point of the program, initialize UI --}
+main _ = do
+    FregeFX.launch $ withStage buildUI
+
+{-- Build the UI using FXML --}
+buildUI :: Family a => a -> Stage -> JFX a
+buildUI root stage = do
+    stage.setTitle "Hello world"
+    view  <- FregeFX.fxml "de.atennert.hangman.Hello" "/main_screen.fxml"
+    scene <- Scene.new view
+    stage.setScene scene
+    -- get UI elements with scene.lookup "#id" -> JFX (Maybe Node) and register handling
+    return root
+
+{-- Function that does and IO action, called from HelloController;
+ prints a message. --}
+doIO :: IO ()
+doIO = println "hello again"
+
+{-- Function that triggers a UI action, called from HelloController;
+ searches a label and changes its text --}
+doUI :: ActionEvent -> IO ()
+doUI e = (withUI $ setLabeledText "Goodbye" =<< flip lookupNode "#label1" =<< sceneFromEvent e) `inIO` (\_ -> return ())
+
+{-- Helper function for setting a text at a Labeled control --}
+setLabeledText :: String -> Labeled -> JFX ()
+setLabeledText text labeled = labeled.setText text
+
+{-- Helper for getting the scene from an ActionEvent;
+ BEWARE: this function can throw runtime errors --}
+sceneFromEvent :: ActionEvent -> JFX Scene
+sceneFromEvent event = do
+    target <- event.getTarget
+    case target of
+        (Just (node::Node)) -> node.getScene -- TODO check the downcast to node, for instance like in lookupNode
+        Nothing     -> error $ "cannot find event target"
+
+
+{-- Required for lookupNode, this is not in FregeFX (yet?) --}
+instance CastTarget Labeled where
+    native downcast "(javafx.scene.control.Labeled)" :: Node -> JFX (ClassCastException | Labeled)
+
+{-- getScene is not defined in FregeFX yet --}
+data Node = mutable native javafx.scene.Node where
+    native getScene :: Node -> JFX Scene

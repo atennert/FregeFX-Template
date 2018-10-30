@@ -1,0 +1,10 @@
+.root {
+    -fx-background-color: #EEFFAA;
+}
+#label1 {
+    -fx-label-padding: 2
+}
+.container {
+    -fx-alignment: center;
+    -fx-spacing: 5;
+}

@@ -1,0 +1,8 @@
+module DummyTest where
+
+import Test.QuickCheck
+--import de.atennert.hangman.Hello
+
+dummy = once true
+
+listAdd = property $ \xs -> (reverse (map (+ 1) xs) == map (+ 1) (reverse xs))
