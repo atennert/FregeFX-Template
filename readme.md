@@ -30,4 +30,5 @@ The build.gradle also contains a jar section for building an executable jar file
 * [Frege API](http://www.frege-lang.org/doc/fregedoc.html)
 * [Calling Frege from Java](https://github.com/Frege/frege/wiki/Calling-Frege-from-Java-(from-release-3.24-on))
 * [FregeChat](https://github.com/Dierk/FregeChat)
+* [frege-gradle-plugin](https://github.com/Frege/frege-gradle-plugin)
 * [JavaFX API](https://docs.oracle.com/javase/8/javafx/api/toc.htm)
