@@ -12,7 +12,7 @@ Linking a controller instance in FXML means you need(?) to have a Java class, wh
 
 So we need a Java class, but the actual logic should be in Frege again. That means, that calls from Java to Frege must be possible. There is an Eclipse plugin that seems to help a lot in this matter. I'm a regular user of IntelliJ though. To get IDE support during the time of writing the Java code, which calls Frege functions, it's necessary to have the Java representation of the Frege code in the sources. (I ended up with no success trying to use the files, which were compiled into the build directory.)
 
-The build.gradle defines a special source set for the Frege code and will compile the corresponding Java code into this source set as well. The Java tooling has a source link to the folders with the generated code and therefore can work with it during development time while Java and Frege code are created in parallel. In my setup IntelliJ doesn't compile files automatically, including the Frege files. If this is the same for you, then you need to execute the fregeCompile task after changes in Frege.
+The build.gradle defines a special source set for the Frege code and will compile the corresponding Java code into this source set as well. The Java tooling has a source link to the folders with the generated code and therefore can work with it during development time while Java and Frege code are developed in parallel. In my setup IntelliJ doesn't compile files automatically, including the Frege files. If this is the same for you, then you need to execute the fregeCompile task after changes in Frege.
 
 The build.gradle also contains a jar section for building an executable jar file.
 
