@@ -3,7 +3,7 @@
 ## What is this template for?
 This is a template for starting a FregeFX project. There are already a few of those, for instance thanks to @Dierk. What is different about this one?
 
-So far all FregeFX projects, which I've found, make use of declaring the UI by creating the UI elements in the Frege code, which is similar to creating you UI by writing Java. JavaFX, however, also allows to create the UI in the XML dialect FXML. FregeFX already has the methods to use FXML, thankfully. But trying to do, what I usually do with JavaFX (for instance linking a controller for the UI inside FXML), I stumbled over quite a few issues.
+So far, all FregeFX projects, which I've found, make use of declaring the UI by creating the UI elements in the Frege code, which is similar to creating you UI by writing Java. JavaFX, however, also allows to create the UI in the XML dialect FXML. FregeFX already has the methods to use FXML, thankfully. But trying to do, what I usually do with JavaFX (for instance linking a controller for the UI inside FXML), I stumbled over quite a few issues.
 
 Now, this template makes use of FXML to generate a UI. It also uses a controller instance to reacts to user input and executes Frege code when an action happens. It also has an extended build.gradle, which helps me to develop FregeFX applications in the above-mentioned setup.
 

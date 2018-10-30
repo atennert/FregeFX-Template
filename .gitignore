@@ -1,0 +1,7 @@
+build
+lib
+.gradle
+.idea
+*.iml
+**/*.iml
+src/frege/java
