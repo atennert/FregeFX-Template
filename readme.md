@@ -23,6 +23,9 @@ The build.gradle also contains a jar section for building an executable jar file
 * build.gradle - the gradle build file
 * There are test file dummies included as well
 
+## What does the template do?
+The template code initializes a window from FXML and CSS with two buttons and a label. Clicking the first button writes output to stdout (IO action). Clicking the second button changes the label text (UI action).
+
 ## Sources, that were really helpful during the development of this template
 * [Frege Goodness](https://dierk.gitbooks.io/fregegoodness/)
 * [FregeFX](https://github.com/Frege/FregeFX)
