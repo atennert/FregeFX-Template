@@ -14,7 +14,7 @@ main _ = do
 buildUI :: Family a => a -> Stage -> JFX a
 buildUI root stage = do
     stage.setTitle "Hello world"
-    view  <- FregeFX.fxml "de.atennert.hangman.Hello" "/main_screen.fxml"
+    view  <- FregeFX.fxml "de.atennert.fregefx.Hello" "/main_screen.fxml"
     scene <- Scene.new view
     stage.setScene scene
     -- get UI elements with scene.lookup "#id" -> JFX (Maybe Node) and register handling
