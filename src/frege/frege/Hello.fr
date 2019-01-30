@@ -40,7 +40,7 @@ sceneFromEvent :: ActionEvent -> JFX Scene
 sceneFromEvent event = do
     target <- event.getTarget
     case target of
-        (Just (node::Node)) -> node.getScene -- TODO check the downcast to node, for instance like in lookupNode
+        (Just (node::Node)) -> getScene node
         Nothing     -> error $ "cannot find event target"
 
 
@@ -49,5 +49,4 @@ instance CastTarget Labeled where
     native downcast "(javafx.scene.control.Labeled)" :: Node -> JFX (ClassCastException | Labeled)
 
 {-- getScene is not defined in FregeFX yet --}
-data Node = mutable native javafx.scene.Node where
-    native getScene :: Node -> JFX Scene
+native getScene getScene :: Node -> JFX Scene
